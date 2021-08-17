@@ -240,7 +240,6 @@ void EliminarMedio(int n, Lista* lista){
 	}
 }
 
-
 int main () {
 	printf("Listas enlazadas\n");
 	// Lineamientos del programa
