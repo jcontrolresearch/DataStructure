@@ -1,3 +1,3 @@
 # Code
 
-Were cexample code is storage
+Were code examples code are storage
