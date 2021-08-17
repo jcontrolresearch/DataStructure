@@ -64,6 +64,20 @@ void EliminarNodo(Nodo* nodo){
 	free(nodo);
 }
 
+int ObtenerLongitud(Lista* lista){
+	//Variable para contar la longitud de la lista
+	int longitud = 0;
+	// Como recorremos la lista y contamos cuantos elementos tiene
+	Nodo* puntero = lista->primero;
+	while(puntero->siguiente != NULL){
+		puntero = puntero->siguiente;
+		longitud++;
+	}
+
+	return longitud;
+
+}
+
 //*************************** Metodos de insercion ***************************************
 
 // Metodo de insertar al princio
@@ -75,7 +89,7 @@ void InsertarPrincipio(Lista* lista, Libro* libro){
 	// El objeto nodo->siguiente es el apuntador al nodo siguiente
 	nodo->siguiente = lista->primero;
 	// 3.- Debemos cambiar la referenia primero de la lista actual al nuevo nodo
-	 lista->primero = nodo;
+	lista->primero = nodo;
 }
 
 // Metodo de insertar al final
@@ -147,10 +161,119 @@ Libro* ObternerLibro(int n, Lista* lista){
 	}
 }
 
+// Funciones de eliminacion
 
-int main () {
-	printf("Listas enlazadas");
-	return 0;
+// *************************************
+
+// Funciones de eliminacion
+
+
+//Como eliminamos al princio?
+
+void EliminarPrincipio(Lista* lista){
+	if(lista->primero != NULL){
+		//1.- Crear un nodo temporal
+		//1.5.- Asignar el nodo.primero a una variable temporal
+		Nodo* eliminar = lista->primero; 
+		//2.- Cambiar el nodo.primero por el nodo.primero.siguiente
+		lista->primero = lista->primero->siguiente;
+		//3.- Eliminar / liberar la memoria del nodo.primero o nodo temporal
+		EliminarNodo(eliminar);
+	}
 }
 
+// Como eliminamos al final?
+
+void EliminarFinal(Lista* lista){
+
+	// 1.- Crear un nodo temporal para guardar el ultimo actual
+	// 2.- Recorrer la lista hasta el penultimo
+	// 3.- Liberar memoria o quitar el ultimo nodo
+	if(lista->primero != NULL){
+		if (lista->primero->siguiente != NULL){
+			Nodo* puntero = lista->primero;
+			while (puntero->siguiente->siguiente != NULL){
+				puntero = puntero->siguiente;
+			}
+
+			Nodo* eliminar = puntero->siguiente;
+			// De esta forma cambiamos el apuntador siguiente del penultimo a NULL y lo definimos como ultimo
+			puntero->siguiente = NULL;
+			// Se libera espacion en memoria
+			EliminarNodo(eliminar);
+		} else{
+			EliminarPrincipio(lista);
+		}
+	}
+}
+
+
+// Eliminar un nodo que este en algun lugar especifico de la lista
+
+
+void EliminarMedio(int n, Lista* lista){
+	//Pasos para eliminar de enmedio de la lista
+	//1.-Crear un nodo apuntador
+	//2.-Crear una variable que cuente en donde estamos en la lista
+	//3.- Recorrer la lista hasta n-1
+	//4.- Cambiar o asignar el apuntador de nodo n-1 a n+1
+	//5.- Eliminar el nodo n
+
+	//Consideraciones
+	// C1.- Que pasa si la lista esta vacia
+	int longitud = 0;
+	if(lista->primero != NULL){
+		// C2.- Que pasa si la lista tiene una longitud menor al elemento que se pide eliminar
+		longitud = ObtenerLongitud(lista);
+		if (n < longitud){
+			Nodo* puntero = lista->primero;
+			Nodo* eliminar = lista->primero;
+			int posicion = 0;
+			while(posicion < (n-1)){
+				puntero = puntero->siguiente;
+				eliminar = puntero-> siguiente->siguiente;
+				posicion = posicion ++;
+			}
+			puntero->siguiente = eliminar->siguiente;
+			EliminarNodo(eliminar);	
+		}
+	}
+}
+
+
+int main () {
+	printf("Listas enlazadas\n");
+	// Lineamientos del programa
+	// Hacer un menu de biblioteca: Las opciones van a ser las siguientes
+	// [1] Agregar un nuevo libro: Preguntar al usuario el titulo, autor e isbn 
+	// [2] Listar los libros: titulo | autor | isbn / si no hay elementos, desplegar: tu biblioteca esta vacia
+	// [3] Eliminar libro: Preguntar donde lo queremos eliminar. 1) Usar un submenu / 2) Pedir n y verificar si n=0 eliminar el principio, si n = long(lista) elimanr el final sino eliminan en la posicion n
+	// [4] Cuantos libros tengo? : Desplegar los libros
+	
+	//Criterio:
+	// agregar 10 libros (sugerencia: libros reales)
+	// En un one_pager mostrar las siguientes puntos:
+	// 1.- Agregar un libro
+	// 2.- Listar los libros
+	// ... Listar hasta tener 10 libros. Se pude agregar al final, al princio o en medio
+	
+	// Eliminar los libros...  igual que agregar libros, utilizar todos las funciones
+	
+	// Listar cuantos libros tengo al final
+	
+	
+	//EL one_pager tiene que contener:
+	//Titulo. Listas enlazada,
+	//Ejecucion 1.
+	// Resultados
+	//Ejecucion 2.
+	// Resultados
+	//etc
+	
+	// TODO: Enviar una tabla de evaluacion de las funciones de listas ligadas 
+	// Se entregara en binas
+	// 
+	printf("titulo | autor | isbn");
+	return 0;
+}
 
