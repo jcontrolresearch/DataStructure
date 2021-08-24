@@ -241,7 +241,62 @@ void EliminarMedio(int n, Lista* lista){
 }
 
 int main () {
-	printf("Listas enlazadas\n");
+
+	//incializar la lista vacia
+	Libro book; //= {.titulo= "", .autor="", .isbn=""};
+	Lista list; //= {.primero = 0, .longitud = 0};
+	//Libro book;
+	//Lista list;
+
+	int seleccion;
+		do
+		    {
+		    	printf("\n|----------------------------------------|");
+				printf("\n|          ° LISTAS ENLAZADAS °          |");
+				printf("\n|----------------------------------------|");
+				printf("\n| 1. Insertar      | 4. Obtener Longitud |");
+				printf("\n| 2. Listar        | 5. Salir            |");
+				printf("\n| 3. Eliminar      |                     |");
+				printf("\n|------------------|---------------------|");
+				printf("\n\n Escoja una Opcion: ");
+		        scanf( "%d", &seleccion);
+		        switch ( seleccion )
+		        {
+		            case 1:
+		            
+		            	fflush(stdin); 
+		          		printf("\n Ingresa el titulo del libro :  ");
+		                gets(book.titulo);
+		                fflush(stdin);
+			            printf("\n Ingresa el autor del libro : ");
+		                gets(book.autor);
+		                fflush(stdin);
+			            printf("\n Ingresa el isbn del libro : ");
+		                gets(book.isbn);
+		                fflush(stdin);
+		                
+		                printf("%s el libro",book.autor);
+		                
+		           	    InsertarPrincipio(&book,&list);
+		
+		               
+		           		break;
+		           	case 2:
+		           		Listar(&book,&list);
+		           	break;
+		           	case 3:
+		           		EliminarFinal(&list);
+		           	break;
+		           	case 4:
+		    	
+		    			printf("La longitud es:%d", ObtenerLongitud(&list));
+		    			break;
+		         }
+		    } while ( seleccion != 5 );
+
+
+
+	
 	// Lineamientos del programa
 	// Hacer un menu de biblioteca: Las opciones van a ser las siguientes
 	// [1] Agregar un nuevo libro: Preguntar al usuario el titulo, autor e isbn 
@@ -272,7 +327,7 @@ int main () {
 	// TODO: Enviar una tabla de evaluacion de las funciones de listas ligadas 
 	// Se entregara en binas
 	// 
-	printf("titulo | autor | isbn");
 	return 0;
 }
+
 
