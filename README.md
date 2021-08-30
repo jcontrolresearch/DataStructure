@@ -1,4 +1,5 @@
 # Estructura de Datos
 
-Ingenieria en Computación
+Ingenieria en Software y Sistemas Computacionales
+
 Responsable: Julio Martinez
