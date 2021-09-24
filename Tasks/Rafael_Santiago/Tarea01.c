@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+//#include <string.h>
 
 typedef struct Libro 
 {
@@ -165,6 +165,8 @@ void EliminarMedio(int n, Lista* lista)
 		}
 	}
 }
+
+
 int main()
 {
 	Libro book = {.titulo=' ', .autor=' ', .isbn=' '}; 

@@ -140,6 +140,10 @@ void Eliminar(Cola* cola){
 
 
 int main(){
+	/*
+	[lineamientos del programa]
+	[1] Cliente
+	*/
 	return 0;
 }
 
