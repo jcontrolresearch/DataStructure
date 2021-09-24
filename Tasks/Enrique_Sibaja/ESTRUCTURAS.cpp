@@ -7,8 +7,10 @@
 
 #include <stdio.h>
 
-#include maxchar [50]
-#include minchar[20]
+//#include maxchar[50]
+//#include minchar[20]
+#define maxchar 50
+#define minchar 50
 
 #include <iostream>
 #include <stdio.h>
@@ -277,26 +279,26 @@ int main ()
                                                        }
                                                        break;
                                                        case 2:
-                                                            MostrarLibros(lista,libro);
+                                                            //MostrarLibros(lista,libro);
                                                             break;
                                                        case 3:
-                                                            do{
-                                                                  cout<<"\n\n\t\t[ En que posicion desea elimniar: ]\n";
-                                                                  cout<<"\t\t---------------------------------------\n";
-                                                                  cout<<"1. Inicio De La Lista"<<endl;
-                                                                  cout<<"2. En medio de la lista"<<endl;
-                                                                  cout<<"3. Final de la Lista"<<endl;
-                                                                  cout<<"\n Ingrese opcion: ";
-                                                                  cin>>respb;
-                                                                  }while((respb < 0)||(respb > 3));
-                                                                  if(respb == 1){
-                                                                           EliminarPrincipio(&lista);
-                                                                           }else if (respb == 2){
-                                                                                 int n = (ObtenerLongitud(lista))/2;
-                                                                                 EliminarMedio(n,lista);
-                                                                                 }else if(respb == 3){
-                                                                                       EliminiarFinal(lista);
-                                                                                       }
+//                                                            do{
+//                                                                  cout<<"\n\n\t\t[ En que posicion desea elimniar: ]\n";
+//                                                                  cout<<"\t\t---------------------------------------\n";
+//                                                                  cout<<"1. Inicio De La Lista"<<endl;
+//                                                                  cout<<"2. En medio de la lista"<<endl;
+//                                                                  cout<<"3. Final de la Lista"<<endl;
+//                                                                  cout<<"\n Ingrese opcion: ";
+                                                                  //cin>>respb;
+//                                                                  }while((respb < 0)||(respb > 3));
+//                                                                  if(respb == 1){
+//                                                                           EliminarPrincipio(&lista);
+//                                                                           }else if (respb == 2){
+//                                                                                 int n = (ObtenerLongitud(lista))/2;
+//                                                                                 EliminarMedio(n,lista);
+//                                                                                 }else if(respb == 3){
+//                                                                                       EliminiarFinal(lista);
+//                                                                                       }
                                                                                        break;
                                                        case 4: 
                                                             int ObtenerLongitud(Lista*lista);
@@ -344,5 +346,5 @@ int main ()
 	// TODO: Enviar una tabla de evaluacion de las funciones de listas ligadas 
 	// Se entregara en binas
 	// 
-	return 0;
-}
+//	return 0;
+//}
