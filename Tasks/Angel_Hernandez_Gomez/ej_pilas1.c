@@ -99,7 +99,7 @@ if(pila.longitud < so){
 /*	printf("\nStock overflow\n");*/
 /*}*/
 }while(pila.longitud!=5);
-printf("\nStock overflow\n");
+printf("\nStack overflow\n");
 printf("\n");
 printf("%s\n", pila.ultimo->url.dire);
 Desapilar(&pila);
